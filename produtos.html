@@ -28,13 +28,25 @@
   <input type="radio" name="global-nav" id="nav-contact" class="nav-menu-inputs">
 
   <header class="main-header">
+
+      <!-- A Logo -->
     <div class="logo-container">
-      <svg class="svg-waveform" viewBox="0 0 60 30"><path d="M5,15 Q12,2 20,15 T35,15 T50,15 T55,15" /></svg>
+
+      <svg class="svg-waveform" viewBox="0 0 60 30">
+        <!-- Linha de base estática (Y=15 é o centro exato) -->
+        <line x1="2" y1="15" x2="58" y2="15" class="svg-baseline" />
+        
+        <!-- ONDA COM MÁXIMA AMPLITUDE (Picos alterados de 6/24 para 2/28) -->
+        <path d="M 5,15 L 14,2 C 16,0 19,0 21,2 L 37,28 C 39,30 42,30 44,28 L 55,15" />
+      </svg>
+      
       <div class="logo-text-block">
         <div class="logo-line-1"><span>CEY</span><em>Music</em></div>
         <div class="logo-line-2">Tecnologia & Arte</div>
       </div>
     </div>
+
+
     <nav>
       <ul class="nav-menu">
         <!-- O label controla o visual (acende o botão) e o link 'a' muda a página -->
@@ -61,9 +73,7 @@
  <!-- [Alteração]: Conteúdo real da sua Página Inicial -->
  <main class="container" style="margin-top:30px; min-height:70vh;">
     
-  <h1 class="fx-neon-intense" style="margin-bottom: 20px;">Bem-vindo ao AUDIO.CORE</h1>
-  <p style="margin-bottom: 40px;">Explore nosso universo de produção musical, tecnologia e arte.</p>
-
+  
   <!-- Exemplo: Inserindo um Card Squeomórfico na Home -->
   <section class="neo-card" style="--card-color: #b026ff; margin-bottom: 40px;">
     <h2>PRODUTOS</h2>

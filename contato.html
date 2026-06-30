@@ -44,13 +44,26 @@
   <input type="radio" name="global-nav" id="nav-contact" class="nav-menu-inputs"checked>
 
   <header class="main-header">
-    <div class="logo-container">
-      <svg class="svg-waveform" viewBox="0 0 60 30"><path d="M5,15 Q12,2 20,15 T35,15 T50,15 T55,15" /></svg>
-      <div class="logo-text-block">
-        <div class="logo-line-1"><span>CEY</span><em>Music</em></div>
-        <div class="logo-line-2">Tecnologia & Arte</div>
+   
+      <!-- A Logo -->
+
+      <div class="logo-container">
+
+        <svg class="svg-waveform" viewBox="0 0 60 30">
+          <!-- Linha de base estática (Y=15 é o centro exato) -->
+          <line x1="2" y1="15" x2="58" y2="15" class="svg-baseline" />
+          
+          <!-- ONDA COM MÁXIMA AMPLITUDE (Picos alterados de 6/24 para 2/28) -->
+          <path d="M 5,15 L 14,2 C 16,0 19,0 21,2 L 37,28 C 39,30 42,30 44,28 L 55,15" />
+        </svg>
+        
+        <div class="logo-text-block">
+          <div class="logo-line-1"><span>CEY</span><em>Music</em></div>
+          <div class="logo-line-2">Tecnologia & Arte</div>
+        </div>
       </div>
-    </div>
+
+
     <nav>
       <ul class="nav-menu">
         <li><label class="nav-label" for="nav-home"><a href="index.html">Home</a></label></li>

@@ -41,13 +41,27 @@
   <input type="radio" name="global-nav" id="nav-contact" class="nav-menu-inputs">
 
   <header class="main-header">
-    <div class="logo-container">
-      <svg class="svg-waveform" viewBox="0 0 60 30"><path d="M5,15 Q12,2 20,15 T35,15 T50,15 T55,15" /></svg>
-      <div class="logo-text-block">
-        <div class="logo-line-1"><span>CEY</span><em>Music</em></div>
-        <div class="logo-line-2">Tecnologia & Arte</div>
+    
+    
+      <!-- A Logo -->
+      <div class="logo-container">
+
+        <svg class="svg-waveform" viewBox="0 0 60 30">
+          <!-- Linha de base estática (Y=15 é o centro exato) -->
+          <line x1="2" y1="15" x2="58" y2="15" class="svg-baseline" />
+          
+          <!-- ONDA COM MÁXIMA AMPLITUDE (Picos alterados de 6/24 para 2/28) -->
+          <path d="M 5,15 L 14,2 C 16,0 19,0 21,2 L 37,28 C 39,30 42,30 44,28 L 55,15" />
+        </svg>
+        
+        <div class="logo-text-block">
+          <div class="logo-line-1"><span>CEY</span><em>Music</em></div>
+          <div class="logo-line-2">Tecnologia & Arte</div>
+        </div>
       </div>
-    </div>
+
+
+     
     <nav>
       <ul class="nav-menu">
         <li><label class="nav-label" for="nav-home"><a href="index.html">Home</a></label></li>
@@ -63,12 +77,12 @@
   </header>
 
   <main class="container" style="margin-top:30px; min-height:70vh;">
-    <section class="neo-card" style="--card-color: #b026ff; margin-bottom: 40px;">
-      
-      <h1 class="fx-neon-intense" style="margin-bottom: 20px;">Bem-vindo ao CEY MUSIC</h1>
-      <p style="margin-bottom: 40px;">Explore nosso universo de produção musical, tecnologia e arte.</p>
+
+   
       
     <!--  https://picsum.photos/id/250/600/300 -->
+
+    <section class="neo-card" style="--card-color: #b026ff; margin-bottom: 40px;">
 
 <!-- Componente: Carrossel Futurista Limpo de Penduricalhos -->
 <div id="carrossel-cyber" class="carrossel-container" style="margin-bottom: 40px;">
@@ -111,43 +125,84 @@
 </div>
 
 
+</section>
+
+<section class="neo-card" style="--card-color: #b026ff; margin-bottom: 40px;">
+  <p>
+  
+    
+  
+  </p>
+
+  <!-- O container garante o alinhamento correto e as margens do celular -->
+  <article class="artigo-container">
+          
+    
+   <h1>Carlos Emilio Younes</h1>
+
+   <p> Arquiteto de soluções tecnológicas em áudio, eletrônica,  circuitos embarcados,arte-educação, e web. 
+   Multi-instrumentista, compositor, arranjador e cantor paulistano. Minha jornada tecnológica e artística é movida pela constância nos estudos, pelo trabalho e pela profunda inspiração na natureza e nos grandes mestres das ciências, tecnologia e arte. Transito com naturalidade entre os instrumentos musicais e as ferramentas tecnológicas de  criação e desenvolvimento de circuitos, aplicações de audio profissional, produção musical, arte-educação e web.</p>
 
 
 
-      <!-- COMPONENTE: PLAYLIST MODULAR ADVANCED -->
-      <div id="playlist-chumbo" class="playlist-container">
-        <div class="player-slim">
-            <audio id="play-audio-elemento" preload="auto"></audio>
-            <button id="play-btn-controle" class="btn-controle status-pausado">
-                <svg class="icone-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                <svg class="icone-pause" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-            </button>
-            <div class="conteudo-player">
-                <div class="info-musica">
-                    <span id="play-titulo" class="titulo-faixa">Selecione uma faixa</span>
-                    <span class="separador">•</span>
-                    <span id="play-autor" class="detalhes-faixa">---</span>
-                </div>
-                <div class="progresso-container">
-                    <span id="play-tempo-atual" class="tempo">0:00</span>
-                    <input type="range" id="play-barra-progresso" value="0" max="100">
-                    <span id="play-tempo-total" class="tempo">0:00</span>
-                </div>
-            </div>
-        </div>
-
-        <ul class="lista-faixas">
-            <li class="item-faixa" data-src="media/audio/cey-sunshine-way.mp3" data-titulo="Sunshine Way" data-autor="Carlos Emilio Younes">
-                <span class="num-faixa">01 //</span> <span class="nome-faixa">Sunshine Way</span>
-            </li>
-            <li class="item-faixa" data-src="media/audio/cey-blue-clouds.mp3" data-titulo="Blue Clouds" data-autor="Djavan & João Bosco">
-                <span class="num-faixa">02 //</span> <span class="nome-faixa">Blue Clouds</span>
-            </li>
-            <li class="item-faixa" data-src="media/audio/cey-manha-leo-norcia.mp3" data-titulo="Manhã" data-autor="Leo Nórcia/Carlos E. Younes">
-                <span class="num-faixa">03 //</span> <span class="nome-faixa">Manhã</span>
-            </li>
-        </ul>
+ <!-- COMPONENTE: PLAYLIST MODULAR ADVANCED -->
+ <div id="playlist-chumbo" class="playlist-container">
+  <div class="player-slim">
+      <audio id="play-audio-elemento" preload="auto"></audio>
+      <button id="play-btn-controle" class="btn-controle status-pausado">
+          <svg class="icone-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          <svg class="icone-pause" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      </button>
+      <div class="conteudo-player">
+          <div class="info-musica">
+              <span id="play-titulo" class="titulo-faixa">Selecione uma faixa</span>
+              <span class="separador">•</span>
+              <span id="play-autor" class="detalhes-faixa">---</span>
+          </div>
+          <div class="progresso-container">
+              <span id="play-tempo-atual" class="tempo">0:00</span>
+              <input type="range" id="play-barra-progresso" value="0" max="100">
+              <span id="play-tempo-total" class="tempo">0:00</span>
+          </div>
       </div>
+  </div>
+
+  <ul class="lista-faixas">
+      <li class="item-faixa" data-src="media/audio/cey-sunshine-way.mp3" data-titulo="Sunshine Way" data-autor="Carlos Emilio Younes">
+          <span class="num-faixa">01 //</span> <span class="nome-faixa">Sunshine Way</span>
+      </li>
+      <li class="item-faixa" data-src="media/audio/cey-blue-clouds.mp3" data-titulo="Blue Clouds" data-autor="Carlos E. Younes">
+          <span class="num-faixa">02 //</span> <span class="nome-faixa">Blue Clouds</span>
+      </li>
+      <li class="item-faixa" data-src="media/audio/cey-manha-leo-norcia.mp3" data-titulo="Manhã" data-autor="Leo Nórcia/Carlos E. Younes">
+          <span class="num-faixa">03 //</span> <span class="nome-faixa">Manhã</span>
+      </li>
+  </ul>
+</div>
+
+
+    
+    <h2>Visite o meu soudcloud para ouvir mais músicas</h2>
+    
+    <p><a href="https://soundcloud.com/carlosyounes" target="_blank"> Carlos E. Younes  no Soudcloud </a> um pouco de minha produção musical e com parceiros.</p>
+    
+    <blockquote>
+      "O som não é apenas uma onda mecânica, é a arquitetura invisível do espaço."
+      <cite>L. C. Vinholes</cite>
+    </blockquote>
+
+
+  </article>
+
+
+
+  </section>
+
+
+  
+
+     
+      
 
     </section>
   </main>
