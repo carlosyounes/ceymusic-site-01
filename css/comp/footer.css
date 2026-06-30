@@ -1,0 +1,159 @@
+
+
+/* Componente de Rodapé Squeomórfico de Alto Volume */
+.main-footer {
+  background: var(--bg-card); /* Mesmo tom cinza metalizado da Nav */
+  padding: 35px 0;
+  margin-top: 80px; /* Mais espaço para o bloco respirar */
+  
+  /* Borda de luz superior idêntica à da Nav para destacar do fundo dark */
+  border-top: 1px solid rgba(255, 255, 255, 0.08); 
+  
+  /* SUPER VOLUME: Força as sombras tridimensionais a saltarem para fora e para cima */
+  box-shadow: 
+    var(--inner-light), 
+    var(--bevel), 
+    0 -10px 30px rgba(0, 0, 0, 0.7), /* Sombreamento pesado projetado para cima */
+    var(--drop-shadow); /* Mantém a base de sombra padrão */
+    
+  font-size: 0.85rem;
+  color: #ffffff; 
+  text-align: center;
+  
+  /* Garante o empilhamento visual correto na tela */
+  position: relative;
+  z-index: 10;
+}
+
+.footer-container {
+  width: min(1200px, 90vw);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+
+/* Ajuste de Alinhamento para Monitores / MacBook */
+@media (min-width: 768px) {
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* Container dos Ícones Sociais */
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+/* O Microbotão Redondo Squeomórfico (Estilo Nav) */
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #15151a; /* Fundo escuro idêntico ao botão inativo da nav */
+  border: 2px solid rgba(255, 255, 255, 0.02);
+  box-shadow: var(--bevel);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Estilização do Ícone SVG */
+.social-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--text-muted); /* Começa apagado com a cor padrão do site */
+  transition: fill 0.25s ease, filter 0.25s ease;
+}
+
+/* Efeito Hover: Acendimento Persistente com a Cor da Rede */
+.social-btn:hover {
+  background: #191920;
+  border-color: var(--social-clr); /* Usa a cor injetada pelo HTML inline */
+  transform: translateY(-2px);
+  /* Brilho volumétrico baseado na cor da própria marca */
+  box-shadow: var(--inner-light), var(--bevel), 
+              0 0 var(--neon-blur) calc(var(--social-clr) * var(--neon-opacity));
+}
+
+.social-btn:hover svg {
+  fill: #ffffff; /* O ícone fica branco puro quando ativo */
+  filter: drop-shadow(0 0 4px var(--social-clr)); /* Glow sutil no próprio desenho do logo */
+}
+
+//* ==========================================================================
+   RODAPÉ EM GRID - MOBILE FIRST (O bloco que você postou)
+   ========================================================================== */
+
+.footer-container {
+  width: min(1200px, 90vw);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr; /* 1 coluna no celular */
+  gap: 16px;
+  align-items: center;
+}
+
+.main-footer .footer-copy {
+  font-family: 'Plus Jakarta Variable', -apple-system, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 420;
+  color: var(--text-muted);
+  margin: 0;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 0;
+}
+
+.main-footer .footer-tech-data {
+  font-family: 'Jetbrains Variable', monospace; 
+  font-size: 0.825rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--clr-accent);
+  opacity: 0.8; 
+  margin: 0;
+  text-align: center;
+}
+
+/* ==========================================================================
+   COMPLEMENTO OBRIGATÓRIO: ATIVAÇÃO DAS 3 COLUNAS EM TELAS GRANDES
+   ========================================================================== */
+@media (min-width: 768px) {
+  .footer-container {
+    /* Transforma a coluna única em 3 colunas de tamanhos idênticos */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 0;
+  }
+
+  /* Distribui cada elemento para a sua respectiva coluna geométrica */
+  .main-footer .footer-copy {
+    text-align: left; /* Esquerda */
+    grid-column: 1;
+  }
+
+  .footer-socials {
+    justify-content: center; /* Centro Perfeito */
+    grid-column: 2;
+  }
+
+  .main-footer .footer-tech-data {
+    text-align: right; /* Direita */
+    grid-column: 3;
+  }
+}

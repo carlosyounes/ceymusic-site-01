@@ -1,0 +1,191 @@
+/* css/comp/carouseljs.css */
+
+#carrossel-cyber {
+  --chumbo-espacial: #0e1117;
+  --chumbo-base: #1b1f27;
+  --chumbo-linha: #2c313c;
+  --neon-brilho: #00f3ff;
+  --neon-suave: rgba(0, 243, 255, 0.15);
+  --texto-cyber: #e2e8f0;
+
+  position: relative;
+  width: 100%;
+  /* Aumentamos a largura máxima para compensar as setas que agora ficam do lado de fora */
+  max-width: 780px; 
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Isolamento do frame da foto */
+#carrossel-cyber .carrossel-moldura-externa {
+  position: relative;
+  width: calc(100% - 100px); /* Deixa 50px livres em cada lado para as setas da página */
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  background-color: var(--chumbo-base);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+#carrossel-cyber .carrossel-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: zoom-in;
+}
+
+#carrossel-cyber .slide-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease-in-out;
+}
+
+#carrossel-cyber .slide-img.ativa {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* SETAS DO MODO NORMAL: Totalmente fora da imagem */
+#carrossel-cyber .seta-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(14, 17, 23, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s;
+}
+
+#carrossel-cyber .seta-btn svg { width: 24px; height: 24px; fill: var(--texto-cyber); }
+#carrossel-cyber .seta-esquerda { left: 0; }
+#carrossel-cyber .seta-direita { right: 0; }
+
+@media (hover: hover) {
+  #carrossel-cyber .seta-btn:hover { background-color: var(--neon-brilho); border-color: var(--neon-brilho); box-shadow: 0 0 15px var(--neon-brilho); }
+  #carrossel-cyber .seta-btn:hover svg { fill: var(--chumbo-espacial); }
+}
+
+/* ==========================================================================
+ ESTADO COMPORTAMENTAL: DIALOG NATIVO (Zoom Real Amplo)
+ ========================================================================== */
+#carrossel-lightbox {
+  border: none;
+  background: transparent;
+  max-width: 100vw;
+  max-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  display: none; 
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#carrossel-lightbox[open] {
+  display: flex;
+}
+
+#carrossel-lightbox::backdrop {
+  background-color: rgba(14, 17, 23, 0.97);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+/* Moldura que fixa os controles cravados externamente à imagem */
+#carrossel-lightbox .lightbox-conteudo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(280px, 75vw, 1200px); /* Define a expansão real ampliada */
+  height: 75vh;
+}
+
+#lightbox-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.9);
+  cursor: zoom-out;
+}
+
+/* O BOTÃO X: Fora da foto, no canto superior direito */
+#carrossel-lightbox .btn-fechar {
+  position: absolute;
+  top: -45px;
+  right: -45px;
+  background-color: rgba(14, 17, 23, 0.8);
+  border: 1px solid var(--neon-brilho);
+  color: var(--neon-brilho);
+  font-size: 22px;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100006;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s;
+}
+
+/* SETAS DO MODO ZOOM: Fora da borda lateral da foto */
+#carrossel-lightbox .seta-zoom {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(14, 17, 23, 0.85);
+  border: 1px solid var(--neon-brilho);
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100005;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s;
+}
+
+#carrossel-lightbox .seta-zoom svg { width: 22px; height: 22px; fill: var(--neon-brilho); }
+#carrossel-lightbox .zoom-esquerda { left: -64px; }
+#carrossel-lightbox .zoom-direita { right: -64px; }
+
+/* Adaptação para telas pequenas de Smartphones */
+@media (max-width: 950px) {
+  #carrossel-cyber { max-width: 100%; }
+  #carrossel-cyber .carrossel-moldura-externa { width: 100%; border-radius: 0; }
+  #carrossel-cyber .seta-btn { background-color: rgba(14, 17, 23, 0.5); width: 38px; height: 38px; }
+  #carrossel-cyber .seta-esquerda { left: 8px; }
+  #carrossel-cyber .seta-direita { right: 8px; }
+  
+  #carrossel-lightbox .lightbox-conteudo { width: 100vw; height: 100vh; }
+  #carrossel-lightbox .zoom-esquerda { left: 10px; }
+  #carrossel-lightbox .zoom-direita { right: 10px; }
+  #carrossel-lightbox .btn-fechar { top: 16px; right: 16px; }
+}
+
+#carrossel-lightbox, #lightbox-img {
+  touch-action: none;
+}

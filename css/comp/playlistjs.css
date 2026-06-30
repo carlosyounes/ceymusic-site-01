@@ -1,0 +1,228 @@
+/* css/comp/playlistjs.css */
+
+#playlist-chumbo {
+  /* VARIÁVEIS LOCAIS DE BRILHO E DESIGN SYSTEM */
+  --chumbo-espacial: #0e1117;
+  --chumbo-base: #1b1f27;
+  --chumbo-linha: #2c313c;
+  --neon-brilho: #00f3ff;
+  --neon-suave: rgba(0, 243, 255, 0.15);
+  --texto-cyber: #e2e8f0;
+  --fontes-futuristas: 'Orbitron', 'Nasalization', 'Exo 2', 'Plus Jakarta Sans', sans-serif;
+
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  font-family: var(--fontes-futuristas);
+  box-sizing: border-box;
+}
+
+/* Reaproveita o visual Slim para o Player Acoplado */
+#playlist-chumbo .player-slim {
+  background-color: rgba(27, 31, 39, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-radius: 12px 12px 0 0; /* Arredonda apenas o topo para encaixar a gaveta */
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Isolamento de resets internos para evitar vazamentos no menu da página */
+#playlist-chumbo .conteudo-player *,
+#playlist-chumbo .info-musica *,
+#playlist-chumbo .progresso-container * {
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Configurações internas do player acoplado */
+#playlist-chumbo .conteudo-player { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 6px; 
+  flex-grow: 1; 
+  overflow: hidden; 
+}
+
+#playlist-chumbo .info-musica { 
+  display: flex; 
+  align-items: center; 
+  gap: 6px; 
+  font-size: clamp(0.65rem, 1.5vw, 0.8rem); 
+  text-transform: uppercase; 
+  letter-spacing: 1px; 
+}
+
+#playlist-chumbo .titulo-faixa { 
+  color: var(--texto-cyber); 
+  font-weight: 700; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+}
+
+#playlist-chumbo .separador { 
+  color: var(--neon-brilho); 
+}
+
+#playlist-chumbo .detalhes-faixa { 
+  color: #718096; 
+  white-space: nowrap; 
+}
+
+#playlist-chumbo .progresso-container { 
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+  width: 100%; 
+}
+
+#playlist-chumbo .tempo { 
+  color: #4a5568; 
+  font-size: 0.7rem; 
+  min-width: 32px; 
+  font-family: monospace; 
+}
+
+/* Botão Quadrado com Cantos Arredondados (12px) */
+#playlist-chumbo #play-btn-controle { 
+  background-color: rgba(14, 17, 23, 0.6); 
+  border: 1px solid rgba(0, 243, 255, 0.2); 
+  width: 42px; 
+  height: 42px; 
+  border-radius: 12px; 
+  cursor: pointer; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  flex-shrink: 0; 
+  transition: all 0.3s; 
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#playlist-chumbo #play-btn-controle svg { 
+  width: 16px; 
+  height: 16px; 
+  fill: var(--neon-brilho) !important; 
+  display: block; 
+}
+
+@media (hover: hover) {
+  #playlist-chumbo #play-btn-controle:hover {
+      background-color: var(--neon-brilho);
+      border-color: var(--neon-brilho);
+      box-shadow: 0 0 15px var(--neon-brilho), inset 0 0 4px rgba(255, 255, 255, 0.5);
+      transform: scale(1.05);
+  }
+  #playlist-chumbo #play-btn-controle:hover svg {
+      fill: var(--chumbo-espacial) !important;
+  }
+}
+
+#playlist-chumbo #play-btn-controle:active {
+  transform: scale(0.95);
+}
+
+/* Alternância de ícones via classes injetadas pelo script */
+#playlist-chumbo #play-btn-controle.status-pausado .icone-pause { display: none !important; }
+#playlist-chumbo #play-btn-controle.status-pausado .icone-play { display: block !important; }
+#playlist-chumbo #play-btn-controle.status-tocando .icone-play { display: none !important; }
+#playlist-chumbo #play-btn-controle.status-tocando .icone-pause { display: block !important; }
+
+/* Trilha Laser do Slider com o Fundo Contraste */
+#playlist-chumbo input[type="range"] { 
+  -webkit-appearance: none; 
+  appearance: none; 
+  width: 100%; 
+  background: var(--chumbo-linha); 
+  height: 4px; 
+  border-radius: 2px; 
+  outline: none; 
+  cursor: pointer; 
+}
+
+#playlist-chumbo input[type="range"]::-webkit-slider-thumb { 
+  -webkit-appearance: none; 
+  appearance: none; 
+  width: 8px; 
+  height: 14px; 
+  border-radius: 2px; 
+  background: var(--neon-brilho); 
+  box-shadow: 0 0 8px var(--neon-brilho); 
+}
+
+#playlist-chumbo input[type="range"]::-moz-range-thumb { 
+  width: 8px; 
+  height: 14px; 
+  border: none; 
+  border-radius: 2px; 
+  background: var(--neon-brilho); 
+  box-shadow: 0 0 8px var(--neon-brilho); 
+  cursor: pointer; 
+}
+
+#playlist-chumbo input[type="range"]::-moz-range-track { 
+  background: transparent; 
+}
+
+
+/* A LISTA DE MÚSICAS (GAVETA INTEGRADA CHUMBO) */
+#playlist-chumbo .lista-faixas {
+  background-color: var(--chumbo-base);
+  list-style: none;
+  padding: 6px 0;
+  margin: 0;
+  border-radius: 0 0 12px 12px; /* Arredonda apenas a base para fechar o bloco */
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Cada linha de música */
+#playlist-chumbo .item-faixa {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  color: #718096;
+  cursor: pointer;
+  font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+#playlist-chumbo .item-faixa:last-child {
+  border-bottom: none;
+}
+
+#playlist-chumbo .num-faixa {
+  font-family: monospace;
+  opacity: 0.5;
+}
+
+/* Efeito Hover nas Faixas (Apenas em Desktop) */
+@media (hover: hover) {
+  #playlist-chumbo .item-faixa:hover {
+      background-color: rgba(255, 255, 255, 0.02);
+      color: var(--texto-cyber);
+      padding-left: 24px; /* Efeito empurrão futurista */
+  }
+}
+
+/* ESTADO ATIVO: Estilo da música que o script colocou em reprodução */
+#playlist-chumbo .item-faixa.faixa-ativa {
+  background-color: rgba(0, 243, 255, 0.03);
+  color: var(--neon-brilho);
+  border-left-color: var(--neon-brilho);
+  font-weight: 600;
+}
+
+#playlist-chumbo .item-faixa.faixa-ativa .num-faixa {
+  opacity: 1;
+}

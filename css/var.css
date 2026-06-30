@@ -1,0 +1,20 @@
+:root {
+  --bg-main: #16161d;
+  --bg-card: #1c1c24;
+  --text-main: #f5f5fa;
+  --text-muted: #94a3b8;
+  
+  /* Sistema de Profundidade Squeomórfica */
+  --inner-light: inset 0 1px 1px rgba(255, 255, 255, 0.12);
+  --drop-shadow: 0 12px 28px rgba(0, 0, 0, 0.85);
+  --bevel: inset 0 -2px 3px rgba(0, 0, 0, 0.7);
+  
+  /* Neon Geral */
+  --neon-blur: 12px;
+  --neon-opacity: 0.4;
+  --clr-accent: #00f2fe; /* Ciano Fluorescente */
+  
+  /* Motores de Brilho de Texto */
+  --neon-text-soft: 0 0 4px var(--neon-clr, var(--clr-accent)), 0 0 10px var(--neon-clr, var(--clr-accent));
+  --neon-text-intense: 0 0 4px #fff, 0 0 10px var(--neon-clr, var(--clr-accent)), 0 0 20px var(--neon-clr, var(--clr-accent)), 0 0 40px var(--neon-clr, var(--clr-accent));
+}

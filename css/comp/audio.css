@@ -1,0 +1,102 @@
+/* Container do Player de Áudio Individual */
+.audio-player-card {
+  background: var(--bg-card);
+  border-radius: 30px;
+  padding: 25px;
+  max-width: 450px;
+  margin: 20px auto;
+  box-shadow: var(--inner-light), var(--bevel), var(--drop-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  will-change: transform, box-shadow;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.audio-player{
+  background: var(--bg-card);
+  border-radius: 30px;
+  padding: 25px;
+  max-width: 450px;
+  margin: 20px auto;
+  box-shadow: var(--inner-light), var(--bevel), var(--drop-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  will-change: transform, box-shadow;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+/* Informações da Faixa em Destaque */
+.audio-track-info {
+  margin-bottom: 20px;
+}
+.audio-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+.audio-artist {
+  font-family: 'Exo 2 Variable', sans-serif;
+  font-size: 0.85rem;
+  color: var(--clr-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+}
+
+/* Estilização da Barra Nativa do Navegador (Leve para a GPU) */
+.audio-player-card audio {
+  width: 100%;
+  height: 40px;
+  outline: none;
+  border-radius: 30px;
+  /* Filtros matemáticos para inverter o cinza padrão para o tema Dark Cyberpunk */
+  filter: invert(0.9) hue-rotate(180deg) saturate(1.5);
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.5), 1px 1px 1px rgba(255,255,255,0.05);
+}
+
+/* Zona de Monetização e Venda Direta Integrada */
+.audio-buy-zone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.05);
+}
+.audio-price {
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+}
+.audio-btn-buy {
+  background: #191920;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 8px 16px;
+  border-radius: 3px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: var(--inner-light), var(--bevel);
+  transition: all 0.2s ease;
+}
+
+/* 🌟 INTERAÇÃO E BRILHO NEON LIGADO NO HOVER */
+.audio-player-card:hover {
+  border-color: var(--clr-accent);
+  box-shadow: var(--inner-light), var(--bevel), var(--drop-shadow),
+              0 0 var(--neon-blur) rgba(0, 242, 254, 0.25);
+}
+.audio-btn-buy:hover {
+  border-color: #39ff14; /* Neon Verde focado em conversão/venda */
+  color: #39ff14;
+  box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+  transform: translateY(-1px);
+}
+

@@ -1,0 +1,79 @@
+/* ==========================================================================
+   ESTADO COMPORTAMENTAL: DIALOG NATIVO (Zoom com suporte a Setas Soboberanas)
+   ========================================================================== */
+   #carrossel-lightbox {
+    border: none;
+    background: transparent;
+    max-width: 100vw;
+    max-height: 100vh;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    display: none; 
+    align-items: center;
+    justify-content: center;
+}
+
+#carrossel-lightbox[open] {
+    display: flex;
+}
+
+/* Fundo do Pop-up (Efeito Vidro Escuro) */
+#carrossel-lightbox::backdrop {
+    background-color: rgba(14, 17, 23, 0.96);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+/* Imagem Ampliada com nível de zoom ajustável */
+#lightbox-img {
+    width: clamp(290px, 85vw, 1100px); /* Deixamos 85vw para as setas não ficarem em cima da imagem */
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 40px 90px rgba(0, 0, 0, 0.9);
+}
+
+/* Botão Compacto "X" de Fechar Flutuante */
+.btn-fechar {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    background-color: #0e1117;
+    border: 1px solid #00f3ff;
+    color: #00f3ff;
+    font-size: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100002;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+    transition: all 0.2s;
+}
+
+/* MODIFICAÇÃO DE ENGENHARIA: Reposiciona as setas originais quando o zoom abre */
+#carrossel-cyber.modo-zoom .seta-btn,
+#carrossel-lightbox ~ #carrossel-cyber .seta-btn {
+    /* Força as setas a ficarem fixas nas bordas do monitor do usuário */
+    position: fixed !important;
+    z-index: 100001 !important; 
+}
+
+/* Garante que o modo zoom nativo do navegador do celular respeite o deslize sem tremer */
+#carrossel-lightbox, #lightbox-img {
+    touch-action: none; /* Impede que a tela do site suba/desça enquanto você arrasta a foto para os lados */
+}
+
+@media (hover: hover) {
+    .btn-fechar:hover {
+        background-color: #00f3ff;
+        color: #0e1117;
+        box-shadow: 0 0 20px #00f3ff;
+    }
+}

@@ -1,0 +1,23 @@
+
+# === Arquivos do Sistema Operacional (macOS Legado) ===
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# === Arquivos do Editor (VS Code 1.70.2) ===
+.vscode/
+*.code-workspace
+.history/
+
+# === Arquivos de Mídia Grandes (Segurança) ===
+# Se você por acaso colocar um vídeo ou áudio muito pesado para testar localmente,
+# o comando abaixo impede que você estoure o limite de 100MB por arquivo do GitHub.
+media/video/*.mp4
+media/audio/*.wav
+
+# === Arquivos Temporários e de Backup ===
+*.bak
+*.tmp
+*.swp

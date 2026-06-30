@@ -1,0 +1,154 @@
+/* ==========================================================================
+   NAVBAR COMPARTIMENTADA - BORDAS DE 2PX E CORES EXCLUSIVAS
+   ========================================================================== */
+
+/* Container Principal do Topo */
+.main-header {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  background: var(--bg-card); /* Novo tom cinza metalizado do var.css */
+  box-shadow: var(--inner-light), var(--bevel), var(--drop-shadow);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Identidade Visual */
+.logo-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Ajustado: Controle estrito de tamanho máximo para a logo triangular */
+.svg-waveform {
+  max-width: 45px;
+  height: 76px;
+  width: auto;
+  fill: none;
+  stroke: var(--clr-accent);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+}
+
+/* Adicionado: Linha de grade estática de fundo estilo osciloscópio */
+.svg-waveform .svg-baseline {
+  stroke: rgba(227, 214, 214, 0.7); /* Tom discreto para dar profundidade */
+  stroke-width: 2.5;                 /* Mais fina que a onda principal */
+  stroke-dasharray: 2 3;             /* Visual pontilhado profissional */
+}
+
+/* Alvo da Animação: Agora atua estritamente no path da onda, poupando a linha base */
+.svg-waveform path {
+  will-change: transform;
+  transform-origin: center;
+  animation: waveMotion 2.8s ease-in-out infinite alternate;
+}
+
+@keyframes waveMotion {
+  0% { transform: scaleY(0.4) scaleX(0.9); }
+  80% { transform: scaleY(1.2) scaleX(1.1); stroke: #39ff14; }
+}
+
+.logo-text-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.1;
+}
+.logo-line-1 {
+  font-size: clamp(1.2rem, 1rem + 0.5vw, 1.6rem);
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 0 2px #fff, 0 0 8px var(--clr-accent), 0 0 16px #b026ff;
+}
+.logo-line-1 span { 
+  font-family: 'Nasalization', sans-serif; 
+  font-weight: 700; 
+  font-size: 1.35em; /* Aumenta o tamanho em 25% em relação ao resto da linha */
+  letter-spacing: 0.08em; /* Afasta um pouco as letras para dar o visual de logo da NASA */
+/* vertical-align: middle;  Alinha perfeitamente a altura com o "Music" ao lado */
+
+   /* 👈 ADICIONE AS TRÊS LINHAS ABAIXO PARA O DEGRADÊ */
+   background: linear-gradient(135deg, #00f2fe 30%, #b026ff 90%); /* Ciano para Roxo */
+   -webkit-background-clip: text; /* Recorta o degradê no formato das letras */
+   -webkit-text-fill-color: transparent; /* Torna o miolo da fonte transparente para revelar o degradê */
+   
+   display: inline-block; /* Obrigatório para o efeito de recorte funcionar perfeitamente */  
+}
+
+.logo-line-1 em { font-family: 'Exo 2 Variable', sans-serif; font-style: normal; font-weight: 200; margin-left: 4px; }
+.logo-line-2 { font-family: 'Exo 2 Variable', sans-serif; font-style: italic; font-weight: 300; font-size: clamp(0.9rem, 0.8rem + 0.3vw, 1.1rem); color: var(--text-muted); margin-top: 2px; }
+
+
+
+/* Estrutura de Links Externos */
+.nav-menu-inputs { display: none; }
+.nav-menu { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; list-style: none; }
+
+/* Ajustado para garantir a remoção do sublinhado nos botões clicáveis */
+.nav-menu li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
+/* O Label (Botão) com bordas grossas de 2px */
+.nav-label {
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 11px 4px; /* Ajustado para compensar a borda grossa */
+  border-radius: 6px;
+  background: #15151a;
+  box-shadow: var(--bevel);
+  border: 2px solid rgba(255, 255, 255, 0.02); /* Borda inicial sutil */
+  font-family: 'Orbitron Variable', sans-serif; /* Atualizado para refletir sua fonte Variable */
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: all 0.25s ease;
+}
+
+/* ==========================================================================
+   MAPEAMENTO DE CORES EXCLUSIVAS VIA NTH-CHILD
+   ========================================================================== */
+.nav-menu li:nth-child(1) { --btn-clr: #00f2fe; } /* Home - Ciano */
+.nav-menu li:nth-child(2) { --btn-clr: #b026ff; } /* Música - Roxo */
+.nav-menu li:nth-child(3) { --btn-clr: #39ff14; } /* Tecnologia - Verde */
+.nav-menu li:nth-child(4) { --btn-clr: #ff5e00; } /* Arte-Edu - Laranja */
+.nav-menu li:nth-child(5) { --btn-clr: #ff0055; } /* Serviços - Magenta */
+.nav-menu li:nth-child(6) { --btn-clr: #ffea00; } /* Produtos - Amarelo */
+.nav-menu li:nth-child(7) { --btn-clr: #0046ff; } /* Artigos - Azul */
+.nav-menu li:nth-child(8) { --btn-clr: #ff0000; } /* Contato - Vermelho */
+
+.nav-label:hover {
+  color: #fff;
+  border-color: var(--btn-clr);
+}
+
+/* Acendendo o botão selecionado de forma persistente */
+#nav-home:checked ~ .main-header label[for="nav-home"],
+#nav-music:checked ~ .main-header label[for="nav-music"],
+#nav-tech:checked ~ .main-header label[for="nav-tech"],
+#nav-edu:checked ~ .main-header label[for="nav-edu"],
+#nav-services:checked ~ .main-header label[for="nav-services"],
+#nav-products:checked ~ .main-header label[for="nav-products"],
+#nav-articles:checked ~ .main-header label[for="nav-articles"],
+#nav-contact:checked ~ .main-header label[for="nav-contact"] {
+  background: #191920;
+  color: #fff;
+  border-color: var(--btn-clr);
+  box-shadow: var(--inner-light), var(--bevel), 
+              0 0 var(--neon-blur) calc(var(--btn-clr) * var(--neon-opacity));
+  transform: translateY(-1px);
+}
+
+/* Telas Grandes (Monitores / MacBook) */
+@media (min-width: 950px) {
+  .main-header { flex-direction: row; align-items: center; justify-content: space-between; padding: 15px 30px; }
+  .nav-menu { grid-template-columns: repeat(8, auto); gap: 6px; }
+  .nav-label { padding: 7px 16px; font-size: 0.9rem; }
+}

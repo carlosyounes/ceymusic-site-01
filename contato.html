@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUDIO.CORE - Gabarito</title>
+    
+    <!-- Preload de fontes -->
+    <link rel="preload" href="fonts/orbitron-variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/exo2-variable.woff2" as="font" type="font/woff2" crossorigin>
+  
+    <!-- Estilos Base -->
+    <link rel="stylesheet" href="css/var.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/typo.css">
+    
+    <!-- Componentes Estruturais -->
+    <link rel="stylesheet" href="css/comp/nav.css">
+    <link rel="stylesheet" href="css/comp/footer.css">
+  
+    <!-- Componentes de Conteúdo -->
+    <link rel="stylesheet" href="css/comp/card.css">
+    <link rel="stylesheet" href="css/comp/carousel.css">
+    <link rel="stylesheet" href="css/comp/audio.css">
+    <link rel="stylesheet" href="css/comp/playlist.css">  
+    <link rel="stylesheet" href="css/comp/playerjs.css">
+    <link rel="stylesheet" href="css/comp/playlistjs.css">
+    <link rel="stylesheet" href="css/comp/carouseljs.css">
+    <link rel="stylesheet" href="css/comp/form.css">
+
+
+  </head>
+  
+<body>
+  <!-- Controle de Menu CSS Puro -->
+  <input type="radio" name="global-nav" id="nav-home" class="nav-menu-inputs">
+  <input type="radio" name="global-nav" id="nav-music" class="nav-menu-inputs">
+  <input type="radio" name="global-nav" id="nav-tech" class="nav-menu-inputs">
+  <input type="radio" name="global-nav" id="nav-edu" class="nav-menu-inputs">
+  <input type="radio" name="global-nav" id="nav-services" class="nav-menu-inputs">
+  <input type="radio" name="global-nav" id="nav-products" class="nav-menu-inputs">
+  <input type="radio" name="global-nav" id="nav-articles" class="nav-menu-inputs">
+  <input type="radio" name="global-nav" id="nav-contact" class="nav-menu-inputs"checked>
+
+  <header class="main-header">
+    <div class="logo-container">
+      <svg class="svg-waveform" viewBox="0 0 60 30"><path d="M5,15 Q12,2 20,15 T35,15 T50,15 T55,15" /></svg>
+      <div class="logo-text-block">
+        <div class="logo-line-1"><span>CEY</span><em>Music</em></div>
+        <div class="logo-line-2">Tecnologia & Arte</div>
+      </div>
+    </div>
+    <nav>
+      <ul class="nav-menu">
+        <li><label class="nav-label" for="nav-home"><a href="index.html">Home</a></label></li>
+        <li><label class="nav-label" for="nav-music"><a href="musica.html">Música</a></label></li>
+        <li><label class="nav-label" for="nav-tech"><a href="tecnologia.html">Tecnologia</a></label></li>
+        <li><label class="nav-label" for="nav-edu"><a href="arte-edu.html">Arte-Edu</a></label></li>
+        <li><label class="nav-label" for="nav-services"><a href="servicos.html">Serviços</a></label></li>
+        <li><label class="nav-label" for="nav-products"><a href="produtos.html">Produtos</a></label></li>
+        <li><label class="nav-label" for="nav-articles"><a href="artigos/">Artigos</a></label></li>
+        <li><label class="nav-label" for="nav-contact"><a href="contato.html">Contato</a></label></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container" style="margin-top:30px; min-height:70vh;">
+    
+<!-- Componente: Formulário de Contato Cyber-Chumbo (CSS Puro) -->
+<div id="contato-cyber" class="form-container">
+    
+  <!-- O Form aponta para o serviço gratuito de envio -->
+  <form action="https://formspree.io" method="POST" class="form-corpo">
+      
+      <!-- CAMPO: NOME -->
+      <div class="form-grupo">
+          <input type="text" name="nome" id="campo-nome" class="form-input" placeholder=" " required autocomplete="off">
+          <label for="campo-nome" class="form-label">Nome_Do_Remetente</label>
+          <span class="linha-laser"></span>
+      </div>
+
+      <!-- CAMPO: E-MAIL -->
+      <div class="form-grupo">
+          <input type="email" name="email" id="campo-email" class="form-input" placeholder=" " required autocomplete="off">
+          <label for="campo-email" class="form-label">Email_De_Contato</label>
+          <span class="linha-laser"></span>
+      </div>
+
+      <!-- CAMPO: MENSAGEM -->
+      <div class="form-grupo">
+          <textarea name="mensagem" id="campo-mensagem" class="form-input" placeholder=" " rows="5" required></textarea>
+          <label for="campo-mensagem" class="form-label">Diretriz_Da_Mensagem</label>
+          <span class="linha-laser"></span>
+      </div>
+
+      <!-- BOTÃO ENVIAR TRIDIMENSIONAL -->
+      <button type="submit" class="form-btn-enviar">
+          Transmitir_Dados_ ⚡
+      </button>
+
+  </form>
+</div>
+
+   
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-container">
+      <p>&copy; 2026 CEY MUSIC. Todos os direitos reservados.</p>
+      <p class="footer-tech-data">Sistemas Estáticos Puros // Otimizado para Hardware Legado</p>
+    </div>
+    
+  </footer>
+
+  <!-- Chamadas de Scripts Modulares (Ordem de Dependência Nula) -->
+  <script src="js/playerjs.js"></script>
+  <script src="js/playlistjs.js"></script>
+  <script src="js/carouseljs.js"></script>
+</body>
+</html>

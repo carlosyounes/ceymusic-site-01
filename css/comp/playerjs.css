@@ -1,0 +1,200 @@
+/* css/comp/playerjs.css */
+
+#player-chumbo.player-slim {
+  /* VARIÁVEIS LOCAIS DE BRILHO E DESIGN SYSTEM */
+  --chumbo-espacial: #0e1117;
+  --chumbo-base: #1b1f27;
+  --neon-brilho: #00f3ff;
+  --neon-suave: rgba(0, 243, 255, 0.2);
+  --texto-cyber: #e2e8f0;
+  --fontes-futuristas: 'Orbitron', 'Nasalization', 'Exo 2', 'Plus Jakarta Sans', sans-serif;
+
+  font-family: var(--fontes-futuristas);
+  font-weight: clamp(400, 2vw + 300, 700); 
+  background-color: rgba(27, 31, 39, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 3vw, 16px);
+  padding: clamp(10px, 2vw, 14px) clamp(14px, 3vw, 20px);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px; 
+  box-sizing: border-box;
+  margin: 0 auto;
+  
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.7),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Hover do Player no Desktop */
+@media (hover: hover) {
+  #player-chumbo.player-slim:hover {
+      border-color: var(--neon-brilho) !important;
+      transform: translateY(-4px);
+      box-shadow: 
+          0 35px 60px rgba(0, 0, 0, 0.8),
+          0 0 20px var(--neon-suave),
+          inset 0 0 10px var(--neon-suave);
+  }
+}
+
+/* Isolamento de resets internos para evitar vazamentos no menu da página */
+#player-chumbo .conteudo-player *,
+#player-chumbo .info-musica *,
+#player-chumbo .progresso-container * {
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Botão Play/Pause Arredondado (12px) mapeado para o ID */
+#player-chumbo #btn-play-pause {
+  background-color: rgba(14, 17, 23, 0.6);
+  border: 1px solid rgba(0, 243, 255, 0.2);
+  width: clamp(38px, 8vw, 44px);
+  height: clamp(38px, 8vw, 44px);
+  border-radius: 12px; 
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Vetores SVG Dinâmicos */
+#player-chumbo #btn-play-pause svg {
+  width: clamp(14px, 3vw, 18px);
+  height: clamp(14px, 3vw, 18px);
+  fill: #00f3ff !important;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+#player-chumbo #btn-play-pause .icone-play {
+  transform: translateX(1px);
+}
+
+@media (hover: hover) {
+  #player-chumbo #btn-play-pause:hover {
+      background-color: var(--neon-brilho);
+      border-color: var(--neon-brilho);
+      box-shadow: 0 0 15px var(--neon-brilho), inset 0 0 4px rgba(255, 255, 255, 0.5);
+      transform: scale(1.05);
+  }
+  #player-chumbo #btn-play-pause:hover svg {
+      fill: var(--chumbo-espacial) !important;
+  }
+}
+
+#player-chumbo #btn-play-pause:active {
+  transform: scale(0.95);
+}
+
+/* Alternância dos ícones pelas classes do script */
+#player-chumbo #btn-play-pause.status-pausado .icone-pause { display: none !important; }
+#player-chumbo #btn-play-pause.status-pausado .icone-play { display: block !important; }
+#player-chumbo #btn-play-pause.status-tocando .icone-play { display: none !important; }
+#player-chumbo #btn-play-pause.status-tocando .icone-pause { display: block !important; }
+
+/* Corpo Interno */
+#player-chumbo .conteudo-player {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+#player-chumbo .info-musica {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: clamp(0.65rem, 1.5vw, 0.8rem);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+#player-chumbo .titulo-faixa {
+  color: var(--texto-cyber);
+  font-weight: clamp(600, 2vw + 500, 800); 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#player-chumbo .separador {
+  color: var(--neon-brilho);
+  opacity: 0.7;
+}
+
+#player-chumbo .detalhes-faixa {
+  color: #718096;
+  white-space: nowrap;
+}
+
+#player-chumbo .ano-faixa {
+  font-size: 0.9em;
+  opacity: 0.6;
+}
+
+#player-chumbo .progresso-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+#player-chumbo .tempo {
+  color: #4a5568;
+  font-size: clamp(0.6rem, 1.2vw, 0.7rem);
+  min-width: clamp(28px, 6vw, 32px);
+  font-family: monospace;
+}
+
+/* Linha do Tempo Laser */
+#player-chumbo input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: #2c313c; /* CORRIGIDO: Chumbo fosco para dar contraste com o neon ciano */
+  height: 4px;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Bolinha Laser - Chrome/Safari/Edge */
+#player-chumbo input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: clamp(6px, 1.5vw, 8px);
+  height: clamp(12px, 2.5vw, 14px);
+  border-radius: 2px;
+  background: var(--neon-brilho);
+  box-shadow: 0 0 8px var(--neon-brilho);
+}
+
+/* Bolinha Laser - Firefox */
+#player-chumbo input[type="range"]::-moz-range-thumb {
+  width: clamp(6px, 1.5vw, 8px);
+  height: clamp(12px, 2.5vw, 14px);
+  border: none;
+  border-radius: 2px;
+  background: var(--neon-brilho);
+  box-shadow: 0 0 8px var(--neon-brilho);
+  cursor: pointer;
+}
+
+/* Ajuste específico para liberar o degradê injetado pelo JS no Firefox */
+#player-chumbo input[type="range"]::-moz-range-track {
+  background: transparent;
+}

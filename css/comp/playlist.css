@@ -1,0 +1,184 @@
+/* Container Geral da Playlist */
+.playlist-container {
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 25px;
+  max-width: 500px;
+  margin: 20px auto;
+  box-shadow: var(--inner-light), var(--bevel), var(--drop-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+/* Esconde os seletores de faixa */
+.track-selector {
+  display: none;
+}
+
+/* Lista de Músicas */
+.playlist-tracks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+/* O "Botão" de cada Faixa (Squeomórfico) */
+.track-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: #15151a;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.01);
+  cursor: pointer;
+  box-shadow: var(--bevel);
+  transition: all 0.25s ease;
+}
+
+.track-label:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.track-number {
+  font-family: 'JetBrains Variable', monospace;
+  font-size: 0.8rem;
+  color: var(--clr-accent);
+}
+
+.track-name {
+  font-family: 'Exo 2 Variable', sans-serif;
+  font-weight: 500;
+  flex-grow: 1;
+  margin-left: 15px;
+}
+
+/* 🟢 A MÁGICA: Acende a faixa selecionada e "afunda" o botão */
+#track-1:checked ~ .playlist-tracks label[for="track-1"],
+#track-2:checked ~ .playlist-tracks label[for="track-2"],
+#track-3:checked ~ .playlist-tracks label[for="track-3"] {
+  background: #0e0e12;
+  border-color: var(--clr-accent);
+  color: #fff;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.6), 
+              0 0 var(--neon-blur) rgba(0, 242, 254, 0.2);
+}
+
+/* 🎯 GERENCIAMENTO DOS PLAYERS NATIVOS */
+.playlist-players {
+  position: relative;
+  background: #0e0e12;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.playlist-players audio {
+  display: none; /* Esconde todos os tocadores por padrão */
+  width: 100%;
+  height: 40px;
+  filter: invert(0.9) hue-rotate(180deg) saturate(1.5);
+}
+
+/* Mostra APENAS o player da música que estiver selecionada */
+#track-1:checked ~ .playlist-players #player-1,
+#track-2:checked ~ .playlist-players #player-2,
+#track-3:checked ~ .playlist-players #player-3 {
+  display: block;
+}
+
+
+/* Container Geral da Playlist */
+.playlist-container {
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 25px;
+  max-width: 500px;
+  margin: 20px auto;
+  box-shadow: var(--inner-light), var(--bevel), var(--drop-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+/* Esconde os seletores de faixa */
+.track-selector {
+  display: none;
+}
+
+/* Lista de Músicas */
+.playlist-tracks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+/* O "Botão" de cada Faixa (Squeomórfico) */
+.track-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: #15151a;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.01);
+  cursor: pointer;
+  box-shadow: var(--bevel);
+  transition: all 0.25s ease;
+}
+
+.track-label:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.track-number {
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-size: 0.8rem;
+  color: var(--clr-accent);
+}
+
+.track-name {
+  font-family: 'Exo 2 Variable', sans-serif;
+  font-weight: 500;
+  flex-grow: 1;
+  margin-left: 15px;
+}
+
+/* 🟢 A MÁGICA: Acende a faixa selecionada e "afunda" o botão */
+#track-1:checked ~ .playlist-tracks label[for="track-1"],
+#track-2:checked ~ .playlist-tracks label[for="track-2"],
+#track-3:checked ~ .playlist-tracks label[for="track-3"] {
+  background: #0e0e12;
+  border-color: var(--clr-accent);
+  color: #fff;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.6), 
+              0 0 var(--neon-blur) rgba(0, 242, 254, 0.2);
+}
+
+/* 🎯 GERENCIAMENTO DOS PLAYERS NATIVOS */
+.playlist-players {
+  position: relative;
+  background: #0e0e12;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.playlist-players audio {
+  display: none; /* Esconde todos os tocadores por padrão */
+  width: 100%;
+  height: 40px;
+  filter: invert(0.9) hue-rotate(180deg) saturate(1.5);
+}
+
+/* Mostra APENAS o player da música que estiver selecionada */
+#track-1:checked ~ .playlist-players #player-1,
+#track-2:checked ~ .playlist-players #player-2,
+#track-3:checked ~ .playlist-players #player-3 {
+  display: block;
+}
+
+
